@@ -1,0 +1,17 @@
+{
+  "name": "perf-stories-deck",
+  "version": "1.0.0",
+  "skin": "skin",
+  "files": [
+    "Readme.md",
+    "deck.md",
+    "images",
+    "code"
+  ],
+  "dependencies": {
+    "@deck/present": "^1.1.0",
+    "skin": "./skin"
+  },
+  "author": "David Mark Clements",
+  "license": "Attribution-ShareAlike 4.0 International"
+}
