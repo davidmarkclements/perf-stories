@@ -472,67 +472,14 @@ notes: |
   <a href=http://twitter.com/davidmarkclem>@davidmarkclem</a>
 </h3>
 
-<details><summary></summary><style>
+<details>
+<summary></summary>
+<style>
 #flamegraph {
   color: rgb(209,115,57);
   position: absolute;
   top: 128px;
   text-shadow: 0px 3px 10px rgb(189, 55, 30);
-}
-
-#flamegraph:before {
-  display: block;
-  content: '';
-  border: 1px solid rgb(209,115,57);
-  border-left: none;
-  border-right: none;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  content: '';
-  height: 0;
-  margin-bottom: -55px;
-  margin-left: 1px;
-  width: 176px;
-  box-shadow: 0px 3px 10px rgb(189, 55, 30);
-}
-
-
-#flamegraph:after {
-  display: block;
-  content: '';
-  border: 1px solid rgb(209,115,57);
-  border-left: none;
-  border-right: none;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  content: '';
-  height: 0;
-  margin-top: -9px;
-  margin-left: 201px;
-  width: 76px;
-  box-shadow: 0px 3px 10px rgb(189, 55, 30);
-}
-
-#fg-h3:after {
-  display: block;
-  content: '';
-  border: 1px solid rgb(209,115,57);
-  border-left: none;
-  border-right: none;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  content: '';
-  height: 0;
-  margin-top: 48px;
-  margin-left: -74px;
-  width: 47px;
-  box-shadow: 0px 3px 10px rgb(189, 55, 30);
 }
 
 #fg-h3 a {
@@ -1152,3 +1099,59 @@ master: section-title
 
 
 <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|Source+Sans+Pro" rel="stylesheet">
+<style>
+#flamegraph::before {
+  display: block;
+  content: '';
+  border: 1px solid rgb(209,115,57);
+  border-left: none;
+  border-right: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  content: '';
+  height: 0;
+  margin-bottom: -55px;
+  margin-left: 1px;
+  width: 176px;
+  box-shadow: 0px 3px 10px rgb(189, 55, 30);
+}
+
+
+#flamegraph::after {
+  display: block;
+  content: '';
+  border: 1px solid rgb(209,115,57);
+  border-left: none;
+  border-right: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  content: '';
+  height: 0;
+  margin-top: -9px;
+  margin-left: 201px;
+  width: 76px;
+  box-shadow: 0px 3px 10px rgb(189, 55, 30);
+}
+
+#fg-h3::after {
+  display: block;
+  content: '';
+  border: 1px solid rgb(209,115,57);
+  border-left: none;
+  border-right: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  content: '';
+  height: 0;
+  margin-top: 48px;
+  margin-left: -74px;
+  width: 47px;
+  box-shadow: 0px 3px 10px rgb(189, 55, 30);
+}
+</style>
