@@ -867,14 +867,16 @@ sysctl fs.file-max=65536
 <!--
 master: section-title
 notes: |
- anger
+ another big part of the project was 
+ profiling a fan out system over websockets
 
- fan-out testing, 
- load testing vs user emulation
- (what need is there for user emulation?)
+ we built a library called anger that works 
+ with Hapi and nes to emulate a large number
+ of users
 -->
 
-# Realtime<br>Profiling
+# Realtime System<br>Profiling
+## (PubSub)
 ### [@davidmarkclem](http://twitter.com/davidmarkclem)
 
 ---
@@ -882,7 +884,7 @@ notes: |
 master: section-title
 notes: |
  they've since built an automated ci 
- pipeline using autocannon
+ pipeline using autocannon w/ percentiles
 -->
 
 # Automated<br>Reports
