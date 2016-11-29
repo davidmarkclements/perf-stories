@@ -34,8 +34,7 @@ notes: |
 
 -->
 
-# Framing Device
-## Narrative<br>Techniques
+# Stories<br>in<br>Stories
 ### [@davidmarkclem](http://twitter.com/davidmarkclem)
 
 
@@ -66,7 +65,7 @@ notes: |
   It was a golden crisp morning in Italy,
   the smell of rich coffee
   lingered pleasantly in the air
-  as I made my along the marbled porticos
+  as I made my way along the marbled porticos
   of Bologna's ancient palaces
   toward Matteo's apartment
 
@@ -347,6 +346,10 @@ notes: |
 ---
 <!--
 master: section-title
+notes: |
+  Matteo and I came away from Net-A-Porter inspired
+  we now had a very good idea of things our community really
+  needed when it comes to profiling and performance
 -->
 
 # Time for a Metaphor
@@ -359,7 +362,10 @@ master: section-title
 master: section-title
 notes: |
   + autopsy
-
+  + fast-safe-strinfgy
+  + quick-format
+  + fastify
+  also steed but that was precursor
 -->
 
 # Our Cambrian Explosion
@@ -559,6 +565,8 @@ master: section-title
 notes: |
   an autocannon is a a machinegun in cannon form
   
+  it's an HTTP benchmarking tool
+
   it has become on of the tools used by Node Core
   for benchmarking, particularly because it works
   on Windows as easily as any other OS
@@ -616,9 +624,9 @@ notes: |
 master: section-title
 notes: |
   automated benchmarking
-
-  phase two of autocannon will be introducing 
-  percentiles, not just averages
+  ci pipeline 
+  automating a workflow
+  percentiles
   
 -->
 
@@ -873,7 +881,7 @@ notes: |
   flatstr module
 -->
 
-# Accidental Extremism
+# Extremely Accidental
 ### [@davidmarkclem](http://twitter.com/davidmarkclem)
 <h2 style="margin-bottom: -128px; margin-top: 0px; font-size: 128px;">
   <a style="color:blue" href=https://github.com/pinojs/pino/pull/24>
@@ -925,6 +933,28 @@ pre {
 }
 </style>
 </details>
+
+---
+<!--
+master: section-title
+notes: |
+  pino has a github org, 
+  where official supporting modules can be found
+
+  like pino-http, pino-socket, pino-elasticsearch
+  express-pino-logger, restify-pino-logger, hapi-pino
+  pino-noir, pino-multi-stream
+
+  we used autocannon for web integration modules
+-->
+
+<a href=http://npm.im/pino target="_blank">
+  <img style="width: 94%;margin-top: 20px;" src=images/pino-eco.png>
+</a>
+
+### [@davidmarkclem](http://twitter.com/davidmarkclem)
+
+
 
 ---
 <!--
@@ -999,6 +1029,21 @@ notes: |
 <!--
 master: section-title
 notes: |
+ anger
+
+ fan-out testing, 
+ load testing vs user emulation
+ (what need is there for user emulation?)
+-->
+
+# Automated<br>Reports
+### [@davidmarkclem](http://twitter.com/davidmarkclem)
+
+
+---
+<!--
+master: section-title
+notes: |
   scene: a utopian future
   many people have contributed to pino, 
   0x, autocannon, autopsy and more
@@ -1010,7 +1055,6 @@ notes: |
   elegance and performance is perfectly balanced by adhering
   to measurement and well established practices, and there
   is harmony among the devs
-
 
 -->
 
