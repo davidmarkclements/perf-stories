@@ -564,12 +564,10 @@ notes: |
 master: section-title
 notes: |
   an autocannon is a a machinegun in cannon form
-  
   it's an HTTP benchmarking tool
-
-  it has become on of the tools used by Node Core
-  for benchmarking, particularly because it works
-  on Windows as easily as any other OS
+  used by core
+  uses `net` instead of `http`
+  native-hdr-historgram < 5 nanoseconds per entry 
 -->
 
 # Fighting<br>Red Herrings
@@ -597,27 +595,6 @@ notes: |
 }
 </style>
 </details>
-
-
----
-<!--
-master: section-title
-notes: |
-  implemented in an extremely performant way, uses
-  TCP `net` module directly instead of http module
-  for maximum req/s
-
-  autocannon can saturate a node server 10% more than ab
-  and wrk thanks to support for pipelining
-
-  the native-hrd-histogram module is used by autocannon for
-  accuracy because the overhead of recording measurements 
-  is reduced to <5 nanoseconds 
-  
--->
-
-# ab & wrk
-### [@davidmarkclem](http://twitter.com/davidmarkclem)
 
 ---
 <!--
@@ -774,170 +751,6 @@ notes: |
 <!--
 master: section-title
 notes: |
-  when JSON.stringify encounters a Date object
-  it calls the toISOString method on the date to
-  convert it to a string which is added to the JSON
-  output. 
-
-  We emulated this by calling toISOString manually,
-  but 0x showed us that toISOString was the new bottleneck!
-
-  We decided to use Date.now() to output millisecond epoch
-  timestamps instead, and introduced a slowtime option to
-  enable full ISO dates
--->
-
-# Killing Time
-### [@davidmarkclem](http://twitter.com/davidmarkclem)
-<h2 style="margin-bottom: -126px; font-size: 128px;">
-  <a style="color:blue" href=https://github.com/pinojs/pino/pull/5>
-    #5
-  </a>
-</h2>
-
-<details><summary></summary><style id=kt-bg>
-#kt-bg {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  display: block;
-  background: url(images/pr5.png);
-  background-size: cover;
-  padding-left: 100px;
-  padding-right: 100px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  z-index: -1;
-  opacity: .5;
-  filter: blur(1px) sepia(110%) contrast(80%);
-}
-</style>
-</details>
-
----
-<!--
-master: section-title
-notes: |
-  when we introduced child loggers (after the spirit of bunyan)
-  it became clear that each new child logger took a performance
-  hit
-
-  we changed the way we created child loggers be refactoring
-  all of the code, from primarily using closured variables
-  at initialization, to instantiated an object from a constructor
-  and reusing the constructor for child logggers
-
-  this improved child creation by 10-20% and child logging
-  by 7-8%
--->
-
-# Waiting <br>for Closure
-### [@davidmarkclem](http://twitter.com/davidmarkclem)
-<h2 style="margin-bottom: -126px; font-size: 128px;">
-  <a style="color:blue" href=https://github.com/pinojs/pino/pull/21>
-    #21
-  </a>
-</h2>
-
-<details><summary></summary><style id=wfc-bg>
-#wfc-bg {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  display: block;
-  background: url(images/pr21.png);
-  background-size: cover;
-  padding-left: 100px;
-  padding-right: 100px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  z-index: -1;
-  opacity: .5;
-  filter: blur(1px) sepia(110%) contrast(80%);
-}
-</style>
-</details>
-
----
-<!--
-master: section-title
-notes: |
-  this is a story in two parts, first we discovered that the sweet 
-  spot for writing to a stream is to write roughly 4KB at a time
-
-  second I discovered the %FlattenString native method by 
-  accident when perusing native methods one day, I tried it 
-  out on our heavily concatated 4K strings and the time for
-  10000 basic log messages went from 150ms to 100ms 
-
-  then after digging around v8, I found that the Number
-  constructor calls String::Flatten on input, and created the
-  flatstr module
--->
-
-# Extremely Accidental
-### [@davidmarkclem](http://twitter.com/davidmarkclem)
-<h2 style="margin-bottom: -128px; margin-top: 0px; font-size: 128px;">
-  <a style="color:blue" href=https://github.com/pinojs/pino/pull/24>
-    #24
-  </a>
-</h2>
-
-## [`flatstr`](http://npm.im/flatstr)
-
-
-```javascript
-module.exports = function flatstr(s) {
-  Number(s)
-  return s
-}
-```
-
-<details><summary></summary><style id=ae-bg>
-pre {
-  background: #eee!important;
-  border: 1px solid #bbb!important;
-  font-size: 16px;
-  padding: 10px!important;
-  margin-top: 120px!important;
-}
-
-#-flatstr-http-npm-im-flatstr- {
-  position: absolute;
-  bottom: 25px;
-}
-
-#ae-bg {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  display: block;
-  background: url(images/pr24.png);
-  background-size: cover;
-  padding-left: 100px;
-  padding-right: 100px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  z-index: -1;
-  opacity: .5;
-  filter: blur(1px) sepia(110%) contrast(80%);
-}
-</style>
-</details>
-
----
-<!--
-master: section-title
-notes: |
   pino has a github org, 
   where official supporting modules can be found
 
@@ -960,14 +773,7 @@ notes: |
 <!--
 master: section-title
 notes: |
-  pino has a github org, 
-  where official supporting modules can be found
-
-  like pino-http, pino-socket, pino-elasticsearch
-  express-pino-logger, restify-pino-logger, hapi-pino
-  pino-noir, pino-multi-stream
-
-  we used autocannon for web integration modules
+ so that's the pino story
 -->
 
 <a href=http://npm.im/pino target="_blank">
@@ -1015,6 +821,52 @@ notes: |
 <!--
 master: section-title
 notes: |
+  setting up a benchmark machine (config settings)
+  
+  don't use AWS T2 instances for running benchmarks!
+  ideal: m3.large
+
+  avoid jumping to a clustered profiling solution, 
+  often an m3.large set up correctly can supply necessary load
+
+  check load balancer, machine and container settings,
+  cloud health checks, measure cpu, mem, disk usage,
+  check caching layers, then check the actual node process
+custom:
+  0:
+    height: 380px
+    width: 550px
+    margin-top: 20px
+    font-size: 16px
+-->
+
+```javascript
+sysctl net.core.rmem_default=268435456
+sysctl net.core.wmem_default=268435456
+sysctl net.core.rmem_max=268435456
+sysctl net.core.wmem_max=268435456
+sysctl net.core.netdev_max_backlog=100000
+sysctl "net.ipv4.tcp_rmem=4096 16384 134217728"
+sysctl "net.ipv4.tcp_wmem=4096 16384 134217728"
+sysctl "net.ipv4.tcp_mem=786432 1048576 268435456"
+sysctl net.ipv4.tcp_max_tw_buckets=360000
+sysctl net.ipv4.tcp_max_syn_backlog=10000
+sysctl vm.min_free_kbytes=65536
+sysctl vm.swappiness=0
+sysctl net.core.somaxconn=10000
+sysctl net.netfilter.nf_conntrack_max=1000000
+sysctl fs.file-max=65536
+```
+
+[gist.github.com/mcollina/23c788bf2f7e8da10b9c](https://gist.github.com/mcollina/23c788bf2f7e8da10b9c)
+
+### [@davidmarkclem](http://twitter.com/davidmarkclem)
+
+
+---
+<!--
+master: section-title
+notes: |
  anger
 
  fan-out testing, 
@@ -1029,11 +881,8 @@ notes: |
 <!--
 master: section-title
 notes: |
- anger
-
- fan-out testing, 
- load testing vs user emulation
- (what need is there for user emulation?)
+ they've since built an automated ci 
+ pipeline using autocannon
 -->
 
 # Automated<br>Reports
@@ -1065,6 +914,18 @@ notes: |
 ---
 <!--
 master: section-title
+notes: |
+  scene: a utopian future
+  many people have contributed to pino, 
+  0x, autocannon, autopsy and more
+  others have cut their own paths,
+  
+  all have learned the ways of NodePerf
+  
+  we live in an enlightened age where the tension between
+  elegance and performance is perfectly balanced by adhering
+  to measurement and well established practices, and there
+  is harmony among the devs
 -->
 <h1 id=fin> fin </h1>
 <div id=creds>
