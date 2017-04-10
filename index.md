@@ -949,7 +949,7 @@ notes: |
 -->
 
 <a href=http://npm.im/pino target="_blank">
-  <img style="width: 94%;margin-top: 20px;" src=images/pino-eco.png>
+  <img style="width: 89%;margin-top: 26px;" src=images/pino-eco.png>
 </a>
 
 ### [@davidmarkclem](http://twitter.com/davidmarkclem)
