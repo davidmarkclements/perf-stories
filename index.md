@@ -881,7 +881,7 @@ notes: |
   flatstr module
 -->
 
-# Extremely Accidental
+# Accidental Discovery
 ### [@davidmarkclem](http://twitter.com/davidmarkclem)
 <h2 style="margin-bottom: -128px; margin-top: 0px; font-size: 128px;">
   <a style="color:blue" href=https://github.com/pinojs/pino/pull/24>
